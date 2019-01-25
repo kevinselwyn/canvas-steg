@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Steg</title>
+    <style type="text/css">
+        p, #msg {
+            margin:0;
+            padding:10px 0;
+        }
+
+        img {
+            border:1px solid black;
+        }
+
+        #text, #code {
+            max-width:100%;
+            padding:10px;
+            border:1px solid black;
+            font-family:Courier, monospace;
+            word-wrap:break-word;
+        }
+    </style>
+</head>
+<body>
+    <p>Payload Image:</p>
+    <img src="./payload.png" />
+    <p>Payload Text:</p>
+    <div id="text"></div>
+    <p>Payload Code:</p>
+    <div id="code"></div>
+    <div id="msg"></div>
+    <script src="../dist/canvas-steg.js"></script>
+    <script type="text/javascript">
+        const msg = document.querySelector('#msg');
+        const text = document.querySelector('#text');
+        const code = document.querySelector('#code');
+        const steg = new CanvasSteg();
+
+        document.addEventListener('keyup', ({keyCode}) => {
+            if (keyCode === 32) {
+                steg.execute();
+            }
+        });
+
+        steg
+            .prepare('./payload.png')
+            .then(() => {
+                msg.innerHTML = 'Payload prepared. Press [space] to execute.';
+                text.innerText = steg.text;
+                code.innerText = steg.payload;
+            });
+    </script>
+</body>
+</html>
