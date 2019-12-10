@@ -7,12 +7,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "babel-loader": "^8.0.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "babel-loader": "^8.0.6",
     "pngjs": "^3.3.3",
     "uglify-js": "^3.4.9",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
